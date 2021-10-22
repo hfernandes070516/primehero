@@ -1,7 +1,8 @@
 *** Settings ***
 Documentation        Aqui estarão presentes os primeiros testes automatizados Web.
 
-Resource             ../resources/keywords/kws_webautomation.robot
+Resource             ../resources/package.robot
+
 Test Setup           Abrir navegador
 Test Teardown        Fechar navegador
 

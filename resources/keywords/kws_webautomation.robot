@@ -1,33 +1,21 @@
 *** Settings ***
 Documentation        Aqui estarão presentes todas as keywords dos testes Web.
 
-Library             SeleniumLibrary
-
-*** Variables ***
-${BROWSER}        chrome
-${URL}            http://automationpractice.com/index.php
+Resource             ../package.robot
 
 *** Keywords ***
-Abrir navegador
-    Open Browser           browser=${BROWSER}
-    Maximize Browser Window
-
-Fechar navegador
-    Capture Page Screenshot
-    Close Browser
-
 Acessar a página home do site Automation Practice​
-    Go To                  ${URL}
-    Title Should Be        My Store
-    Wait Until Element Is Visible                    xpath=//*[@id="block_top_menu"]/ul
+    Go To                               ${URL}
+    Title Should Be                     ${HOME.TITLE_PAGE_HOME}
+    Wait Until Element Is Visible       ${HOME.HEADER_OPTIONS}
 
 Digitar o nome do produto "${PRODUTO}" no campo de pesquisa​
-    Input Text            id=search_query_top           ${PRODUTO} 
+    Input Text                          ${HOME.INPUT_BUSCA}           ${PRODUTO} 
 
 Clicar no botão pesquisar​
-    Click Element         name=submit_search
+    Click Element                       ${HOME.BTN_PESQUISAR}
 
 Conferir se o produto "${PRODUTO}" foi listado no site
-    Page Should Contain Image           xpath=//*[@id="center_column"]//*[@src='http://automationpractice.com/img/p/7/7-home_default.jpg']
-    Title Should Be                     Search - My Store
+    Page Should Contain Image           xpath=${HOME.IMG_BLOUSE}
+    Title Should Be                     ${HOME.TITLE_PAGE_PESQUISA}
 ​
