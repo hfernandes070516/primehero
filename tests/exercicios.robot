@@ -3,7 +3,7 @@ Documentation        Neste arquivo estarão presentes todos os exercícios de au
 
 *** Variable ***
 # Minha primeira variável do tipo dicionário
-&{PESSOA}        
+&{PESSOA}
 ...        nome=Helder    
 ...        sobrenome=Fernandes    
 ...        idade=28 anos    
